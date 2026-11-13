@@ -1,0 +1,65 @@
+# Hook priorities for prek parallel execution:
+# 10: Formatters, independent checkers, and read-only linters.
+# 20: Linters that must run after formatters.
+# 40: end-of-file-fixer.
+# 50: trailing-whitespace.
+exclude: ^googlea96d97d748a4e703\.html$
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+        priority: 10
+      - id: end-of-file-fixer
+        priority: 40
+      - id: trailing-whitespace
+        priority: 50
+      - id: detect-private-key
+        priority: 10
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.3
+    hooks:
+      - id: codespell
+        priority: 10
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        priority: 10
+        args: [--wrap=120]
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-gfm-alerts
+          - mdformat-tables
+          - mdformat-frontmatter
+          - mdformat-footnote
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.3
+    hooks:
+      - id: markdownlint-cli2
+        priority: 20
+        name: markdownlint
+        args: [--config, .github/.markdownlint-cli2.yaml]
+  - repo: https://github.com/lycheeverse/lychee.git
+    rev: lychee-v0.24.2
+    hooks:
+      - id: lychee
+        priority: 10
+        args: [--config, .github/lychee.toml]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        priority: 10
+        types_or: [html, css, javascript]
+        args: [--print-width=120]
+  - repo: https://github.com/thibaudcolas/pre-commit-stylelint
+    rev: v17.16.0
+    hooks:
+      - id: stylelint
+        priority: 20
+        files: \.(css|html)$
+        args: [--fix, --config=.github/.stylelintrc.yaml]
+        additional_dependencies:
+          - stylelint@17.16.0
+          - postcss-html@1.8.0

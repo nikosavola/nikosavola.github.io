@@ -1,126 +1,249 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Niko Savola</title>
-<meta name="description" content="Photonics engineer at Taara Connect and part-time quantum PhD researcher at Aalto University. Open-source chip design tools, Wear OS apps and Home Assistant integrations.">
-<meta name="theme-color" content="#15171a">
-<link rel="preload" href="fonts/CodeNewRoman-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-/* Code New Roman is not on Google Fonts, so it is self-hosted (latin subset, OFL). */
-@font-face { font-family: "Code New Roman"; font-weight: 400; font-display: swap; src: url("fonts/CodeNewRoman-Regular.woff2") format("woff2"); }
-@font-face { font-family: "Code New Roman"; font-weight: 700; font-display: swap; src: url("fonts/CodeNewRoman-Bold.woff2") format("woff2"); }
-/* One accent (teal) means "prompt or link". Everything else is grey or white. */
-:root {
-  --bg: #15171a;
-  --head: #f2f4f7; --text: #d9dde3; --mute: #9aa2ab;
-  --accent: #6fd0c4; --accent-hover: #a6ece3;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0; background: var(--bg); color: var(--text);
-  font: 15px/1.65 "Code New Roman", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  padding: 56px max(16px, env(safe-area-inset-right)) 96px max(16px, env(safe-area-inset-left));
-}
-a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(111, 208, 196, 0.35); text-underline-offset: 3px; }
-a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-main { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
-section { display: flex; flex-direction: column; gap: 10px; }
-nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 13px; }
-.ps { color: var(--accent); }
-.note { color: var(--mute); }
-h1 { margin: 4px 0 0; font-size: clamp(36px, 8vw, 52px); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; color: var(--head); }
-.roles { color: var(--head); }
-p { margin: 0; max-width: 68ch; }
-.scroll { overflow-x: auto; }
-.list { display: grid; grid-template-columns: max-content max-content 1fr; column-gap: 20px; row-gap: 4px; min-width: 560px; }
-.list .n { text-align: right; color: var(--mute); }
-.list .d { color: var(--mute); }
-.list.repos { grid-template-columns: max-content 1fr; min-width: 0; }
-.log { display: grid; grid-template-columns: max-content 1fr; column-gap: 20px; row-gap: 2px; }
-.log .y { color: var(--mute); }
-.links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-@media (max-width: 640px) {
-  body { padding-top: 24px; }
-  .list { min-width: 0; }
-  .list.repos { grid-template-columns: 1fr; row-gap: 0; }
-  .list.repos .d { margin-bottom: 8px; }
-}
-</style>
-</head>
-<body>
-<main>
-  <section>
-    <div><span class="ps">niko@helsinki:~$</span> whoami</div>
-    <h1>niko savola</h1>
-    <div class="roles">photonics engineer @ taara connect<br>part-time quantum phd @ aalto university</div>
-    <nav aria-label="Sections"><a href="#work">work</a><a href="#after-hours">after-hours</a><a href="#cv">cv</a><a href="#links">links</a></nav>
-  </section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Niko Savola</title>
+    <meta
+      name="description"
+      content="Photonics engineer at Taara Connect and part-time quantum PhD researcher at Aalto University. Open-source chip design tools, Wear OS apps and Home Assistant integrations."
+    />
+    <meta name="theme-color" content="#15171a" />
+    <link rel="preload" href="fonts/CodeNewRoman-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      /* Code New Roman is not on Google Fonts, so it is self-hosted (latin subset, OFL). */
+      @font-face {
+        font-family: "Code New Roman";
+        font-weight: 400;
+        font-display: swap;
+        src: url("fonts/CodeNewRoman-Regular.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Code New Roman";
+        font-weight: 700;
+        font-display: swap;
+        src: url("fonts/CodeNewRoman-Bold.woff2") format("woff2");
+      }
+      /* One accent (teal) means "prompt or link". Everything else is grey or white. */
+      :root {
+        --bg: #15171a;
+        --head: #f2f4f7;
+        --text: #d9dde3;
+        --mute: #9aa2ab;
+        --accent: #6fd0c4;
+        --accent-hover: #a6ece3;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          15px/1.65 "Code New Roman",
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Consolas,
+          monospace;
+        padding: 56px max(16px, env(safe-area-inset-right)) 96px max(16px, env(safe-area-inset-left));
+      }
+      a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-decoration-color: rgba(111, 208, 196, 0.35);
+        text-underline-offset: 3px;
+      }
+      a:hover {
+        color: var(--accent-hover);
+        text-decoration-color: currentColor;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 44px;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 20px;
+        font-size: 13px;
+      }
+      .ps {
+        color: var(--accent);
+      }
+      .note {
+        color: var(--mute);
+      }
+      h1 {
+        margin: 4px 0 0;
+        font-size: clamp(36px, 8vw, 52px);
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--head);
+      }
+      .roles {
+        color: var(--head);
+      }
+      p {
+        margin: 0;
+        max-width: 68ch;
+      }
+      .scroll {
+        overflow-x: auto;
+      }
+      .list {
+        display: grid;
+        grid-template-columns: max-content max-content 1fr;
+        column-gap: 20px;
+        row-gap: 4px;
+        min-width: 560px;
+      }
+      .list .n {
+        text-align: right;
+        color: var(--mute);
+      }
+      .list .d {
+        color: var(--mute);
+      }
+      .list.repos {
+        grid-template-columns: max-content 1fr;
+        min-width: 0;
+      }
+      .log {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        column-gap: 20px;
+        row-gap: 2px;
+      }
+      .log .y {
+        color: var(--mute);
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+      }
+      @media (max-width: 640px) {
+        body {
+          padding-top: 24px;
+        }
+        .list {
+          min-width: 0;
+        }
+        .list.repos {
+          grid-template-columns: 1fr;
+          row-gap: 0;
+        }
+        .list.repos .d {
+          margin-bottom: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div><span class="ps">niko@helsinki:~$</span> whoami</div>
+        <h1>niko savola</h1>
+        <div class="roles">photonics engineer @ taara connect<br />part-time quantum phd @ aalto university</div>
+        <nav aria-label="Sections">
+          <a href="#work">work</a><a href="#after-hours">after-hours</a><a href="#cv">cv</a><a href="#links">links</a>
+        </nav>
+      </section>
 
-  <section>
-    <div><span class="ps">$</span> cat about.txt</div>
-    <p>I design photonic and superconducting chips, and I spend a lot of my time on the open-source tools that lay them out and simulate them. Before Taara I was at X, The Moonshot Factory, Google and IQM Quantum Computers. Based in Helsinki.</p>
-  </section>
+      <section>
+        <div><span class="ps">$</span> cat about.txt</div>
+        <p>
+          I design photonic and superconducting chips, and I spend a lot of my time on the open-source tools that lay
+          them out and simulate them. Before Taara I was at X, The Moonshot Factory, Google and IQM Quantum Computers.
+          Based in Helsinki.
+        </p>
+      </section>
 
-  <section id="work">
-    <div><span class="ps">$</span> ls ~/work_open_source <span class="note"># merged PRs on the left</span></div>
-    <div class="scroll">
-      <div class="list">
-        <span class="n">431</span><a href="https://github.com/gdsfactory/quantum-rf-pdk">quantum-rf-pdk/</a><span class="d">superconducting PDK I created for gdsfactory</span>
-        <span class="n">95</span><a href="https://github.com/gdsfactory/gdsfactory">gdsfactory/</a><span class="d">python chip design and simulation</span>
-        <span class="n">57</span><a href="https://github.com/gdsfactory/gplugins">gplugins/</a><span class="d">simulation plugins for gdsfactory</span>
-      </div>
-    </div>
-  </section>
+      <section id="work">
+        <div><span class="ps">$</span> ls ~/work_open_source <span class="note"># merged PRs on the left</span></div>
+        <div class="scroll">
+          <div class="list">
+            <span class="n">431</span><a href="https://github.com/gdsfactory/quantum-rf-pdk">quantum-rf-pdk/</a
+            ><span class="d">superconducting PDK I created for gdsfactory</span> <span class="n">95</span
+            ><a href="https://github.com/gdsfactory/gdsfactory">gdsfactory/</a
+            ><span class="d">python chip design and simulation</span> <span class="n">57</span
+            ><a href="https://github.com/gdsfactory/gplugins">gplugins/</a
+            ><span class="d">simulation plugins for gdsfactory</span>
+          </div>
+        </div>
+      </section>
 
-  <section id="after-hours">
-    <div><span class="ps">$</span> ls ~/after-hours</div>
-    <div class="list repos">
-      <a href="https://github.com/nikosavola/k-ruoka-mcp">k-ruoka-mcp/</a><span class="d">MCP server for a Finnish grocery cart, in Rust</span>
-      <a href="https://github.com/nikosavola/immich-wear">immich-wear/</a><span class="d">Wear OS client for self-hosted Immich photos</span>
-      <a href="https://github.com/nikosavola/AnkiDroid-WearOS">AnkiDroid-WearOS/</a><span class="d">flashcard reviews on the watch, offline</span>
-      <a href="https://github.com/nikosavola/ClockifyWearOS">ClockifyWearOS/</a><span class="d">Clockify time tracking on the watch</span>
-      <a href="https://github.com/nikosavola/karoo-xm-headphones">karoo-xm-headphones/</a><span class="d">Sony headphone control from a bike computer</span>
-      <a href="https://github.com/nikosavola/karoo-ext-testing">karoo-ext-testing/</a><span class="d">test doubles for Hammerhead Karoo extensions</span>
-      <a href="https://github.com/nikosavola/electrolux-ac-infrared">electrolux-ac-infrared/</a><span class="d">Home Assistant integration over infrared</span>
-      <a href="https://github.com/nikosavola/ha-anki">ha-anki/</a><span class="d">Anki card counts as Home Assistant sensors</span>
-      <a href="https://github.com/nikosavola/typst-touying-template">typst-touying-template/</a><span class="d">Copier template for Typst slide decks</span>
-      <a href="https://github.com/nikosavola/sphinxcontrib-bibtex-urn">sphinxcontrib-bibtex-urn/</a><span class="d">Sphinx extension for URN citations</span>
-    </div>
-  </section>
+      <section id="after-hours">
+        <div><span class="ps">$</span> ls ~/after-hours</div>
+        <div class="list repos">
+          <a href="https://github.com/nikosavola/k-ruoka-mcp">k-ruoka-mcp/</a
+          ><span class="d">MCP server for a Finnish grocery cart, in Rust</span>
+          <a href="https://github.com/nikosavola/immich-wear">immich-wear/</a
+          ><span class="d">Wear OS client for self-hosted Immich photos</span>
+          <a href="https://github.com/nikosavola/AnkiDroid-WearOS">AnkiDroid-WearOS/</a
+          ><span class="d">flashcard reviews on the watch, offline</span>
+          <a href="https://github.com/nikosavola/ClockifyWearOS">ClockifyWearOS/</a
+          ><span class="d">Clockify time tracking on the watch</span>
+          <a href="https://github.com/nikosavola/karoo-xm-headphones">karoo-xm-headphones/</a
+          ><span class="d">Sony headphone control from a bike computer</span>
+          <a href="https://github.com/nikosavola/karoo-ext-testing">karoo-ext-testing/</a
+          ><span class="d">test doubles for Hammerhead Karoo extensions</span>
+          <a href="https://github.com/nikosavola/electrolux-ac-infrared">electrolux-ac-infrared/</a
+          ><span class="d">Home Assistant integration over infrared</span>
+          <a href="https://github.com/nikosavola/ha-anki">ha-anki/</a
+          ><span class="d">Anki card counts as Home Assistant sensors</span>
+          <a href="https://github.com/nikosavola/typst-touying-template">typst-touying-template/</a
+          ><span class="d">Copier template for Typst slide decks</span>
+          <a href="https://github.com/nikosavola/sphinxcontrib-bibtex-urn">sphinxcontrib-bibtex-urn/</a
+          ><span class="d">Sphinx extension for URN citations</span>
+        </div>
+      </section>
 
-  <section id="cv">
-    <div><span class="ps">$</span> git log --oneline career</div>
-    <div class="log">
-      <span class="y">2025</span><span>photonics engineer, taara connect</span>
-      <span class="y">2024</span><span>photonics engineer, x, the moonshot factory</span>
-      <span class="y">2023</span><span>phd resident, x · student researcher, google</span>
-      <span class="y">2023</span><span>started phd, aalto university</span>
-      <span class="y">2023</span><span>msc, engineering physics, aalto</span>
-      <span class="y">2022</span><span>quantum engineer, iqm quantum computers</span>
-      <span class="y">2021</span><span>intern quantum engineer, iqm · bsc, engineering physics, aalto</span>
-    </div>
-  </section>
+      <section id="cv">
+        <div><span class="ps">$</span> git log --oneline career</div>
+        <div class="log">
+          <span class="y">2025</span><span>photonics engineer, taara connect</span> <span class="y">2024</span
+          ><span>photonics engineer, x, the moonshot factory</span> <span class="y">2023</span
+          ><span>phd resident, x · student researcher, google</span> <span class="y">2023</span
+          ><span>started phd, aalto university</span> <span class="y">2023</span
+          ><span>msc, engineering physics, aalto</span> <span class="y">2022</span
+          ><span>quantum engineer, iqm quantum computers</span> <span class="y">2021</span
+          ><span>intern quantum engineer, iqm · bsc, engineering physics, aalto</span>
+        </div>
+      </section>
 
-  <section>
-    <div><span class="ps">$</span> cat ~/.config/interests</div>
-    <p>cycling, tile hunting, gaming, self-hosting, home automation</p>
-  </section>
+      <section>
+        <div><span class="ps">$</span> cat ~/.config/interests</div>
+        <p>cycling, tile hunting, gaming, self-hosting, home automation</p>
+      </section>
 
-  <section id="links">
-    <div><span class="ps">$</span> ls ~/links</div>
-    <div class="links">
-      <a href="https://github.com/nikosavola">github</a>
-      <a href="https://play.google.com/store/apps/dev?id=5341684173980499428">google play</a>
-      <a href="https://orcid.org/0000-0002-8036-4984">orcid</a>
-      <a href="https://research.aalto.fi/en/persons/niko-savola/">research.aalto.fi</a>
-      <a href="https://linkedin.com/in/nikosavola">linkedin</a>
-      <a href="https://liberapay.com/nikosavola">liberapay</a>
-    </div>
-  </section>
-</main>
-</body>
+      <section id="links">
+        <div><span class="ps">$</span> ls ~/links</div>
+        <div class="links">
+          <a href="https://github.com/nikosavola">github</a>
+          <a href="https://play.google.com/store/apps/dev?id=5341684173980499428">google play</a>
+          <a href="https://orcid.org/0000-0002-8036-4984">orcid</a>
+          <a href="https://research.aalto.fi/en/persons/niko-savola/">research.aalto.fi</a>
+          <a href="https://linkedin.com/in/nikosavola">linkedin</a>
+          <a href="https://liberapay.com/nikosavola">liberapay</a>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
